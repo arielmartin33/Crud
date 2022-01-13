@@ -10,35 +10,42 @@ const controller = {
 	// Root - Show all products
 	index: (req, res) => {
 		// Do the magic
+		res.render('products', {products});
 	},
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		// Do the magic
+		res.render('detail');
 	},
 
 	// Create - Form to create
 	create: (req, res) => {
 		// Do the magic
+		res.render('product-create-form');
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
 		// Do the magic
+		res.render('store');
 	},
 
 	// Update - Form to edit
 	edit: (req, res) => {
 		// Do the magic
+		res.render('product-edit-form');
 	},
 	// Update - Method to update
 	update: (req, res) => {
 		// Do the magic
+		res.render('update');
 	},
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		// Do the magic
+		res.render('destroy');
 	}
 };
 
