@@ -35,8 +35,20 @@ const controller = {
 	
 	// Create -  Method to store
 	store: (req, res) => {
-		// Do the magic
-		console.log(req.body);
+		let newProduct = {
+			id: products[products.length - 1].id + 1,
+			...req.body,
+			image: 'default-image.png'
+		}
+		console.log(newProduct);
+		products.push(newProduct)
+		console.log(newProduct);
+		const jsonProducts = JSON.stringify(products);
+
+		fs.writeFileSync(productsFilePath, jsonProducts, 'utf-8');
+
+		res.render('product-create-form');
+
 	},
 
 	// Update - Form to edit
