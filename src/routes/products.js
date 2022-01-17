@@ -1,20 +1,33 @@
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
+const  multer = require('multer');
 
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
+
+// ************ Multer Config *****************
+const fileStorageEngine = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './public/images/products')
+    },
+    filename: (req, file, cb) =>{
+        cb(null, `${Date.now()}--${file.originalname}`)
+    }
+})
+
+const upload = multer({storage: fileStorageEngine})
 
 /*** GET ALL PRODUCTS ***/ 
 router.get('/', productsController.index); 
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', productsController.create); 
-router.post('/', productsController.store); 
+router.post('/', upload.single('image'), productsController.store); 
 
 
 /*** GET ONE PRODUCT ***/ 
-router.get('/:id/', productsController.detail); 
+router.get('detail/:id/', productsController.detail); 
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/:id/products', productsController.edit); 
