@@ -17,26 +17,27 @@
 		 
 			<div class="product-detail">
 				<div class="row">
+					<% productSelected.forEach(product => { %>
 					<div class="col-12 col-lg-8">
-						<img src="/images/products/<%= productSelected.image %>" alt="product image" class="product-detail-img">
+						<img src="/images/products/<%= product.image %>" alt="product image" class="product-detail-img">
 						<p class="product-detail-description">
-							<%= productSelected.description %>
+							<%= product.description %>
 						</p>
 					</div>
 					<div class="col-12 col-lg-4">
 						<article class="product-detail-info">
-							<h2 class="product-detail-title"><%= productSelected.description %></h2>
+							<h2 class="product-detail-title"><%= product.description %></h2>
 							
 								<p class="product-detail-price small">
-									<span>$<%= productSelected.price %></span>
+									<span>$<%= product.price %></span>
 									
-									<b><%= productSelected.discount %>% OFF</b>
+									<b><%= product.discount %>% OFF</b>
 								</p>
 								<p class="product-detail-price">
-									$<%= productSelected.price %>
+									$<%= product.price %>
 								</p>
 								<p class="product-detail-price">
-									$<%= productSelected.price %>
+									$<%= product.price %>
 								</p>
 	
 							<ul class="actions-list">
@@ -53,12 +54,13 @@
 							<a href="#" class="buy-now-button">COMPRAR AHORA</a>
 							<hr>
 	
-							<a href="/products/edit/<%= productSelected.id %>" class="action-button edit">EDITAR PRODUCTO</a>
+							<a href="/products/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
 							<form action="/products/delete/¿¿" method="POST" style="display: inline-flex">
 								<button type="submit" class="action-button delete">ELIMINAR</button>
 							</form>
 						</article>
 					</div>
+					<% }) %>
 				</div>
 			</div>
 	</div>
