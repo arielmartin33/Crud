@@ -55,7 +55,9 @@ const controller = {
 	// Update - Form to edit
 	edit: (req, res) => {
 		// Do the magic
-		res.render('product-edit-form');
+		let idProducto = req.params.id
+		let productToEdit = products[idProducto];
+		res.render('product-edit-form', {productToEdit});
 	},
 	// Update - Method to update
 	update: (req, res) => {

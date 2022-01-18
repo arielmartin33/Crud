@@ -30,7 +30,7 @@ router.post('/', upload.single('image'), productsController.store);
 router.get('/:id', productsController.detail); 
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/:id/products', productsController.edit); 
+router.get('/edit/:id', productsController.edit); 
 router.put('/:id', productsController.update); 
 
 
