@@ -27,7 +27,7 @@ router.post('/', upload.single('image'), productsController.store);
 
 
 /*** GET ONE PRODUCT ***/ 
-router.get('/:id', productsController.detail); 
+router.get('/detail/:id', productsController.detail); 
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id', productsController.edit); 
